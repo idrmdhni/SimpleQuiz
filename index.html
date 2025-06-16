@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="font-[Poppins] bg-[#81B1B3] flex justify-center items-center h-screen"
+  >
+    <section id="startQuiz">
+      <button
+        class="shadow-lg shadow-[#0000004d] bg-[#608385] text-xl text-[#cfdada] hover:bg-[#567678] hover:text-[#dfe6e7] active:bg-[#4d696a] active:text-[#eff3f3] cursor-pointer font-medium duration-300 rounded-md px-5 py-3"
+        id="startQuizBtn"
+      >
+        Start Quiz
+      </button>
+    </section>
+
+    <section
+      class="hidden flex flex-col bg-[#f2f7f7] w-full lg:w-auto h-full lg:h-auto rounded-none lg:rounded-xl shadow-lg shadow-[#0000004d] text-[#203031]"
+      id="quizRules"
+    >
+      <header class="px-8 py-2 border-b border-solid border-b-[#cde0e1]">
+        <h5 class="font-bold text-lg">Quiz Rules</h5>
+      </header>
+      <main class="px-8 py-3 flex-auto">
+        <ol class="list-[decimal] ml-5 break-words">
+          <li>Rule 1</li>
+          <li>Rule 2</li>
+          <li>Rule 3</li>
+          <li>Rule 4</li>
+          <li>Rule 5</li>
+        </ol>
+      </main>
+      <footer class="px-8 py-2 border-t border-solid border-t-[#cde0e1]">
+        <div class="flex justify-end gap-2">
+          <button
+            class="border-[1.5px] border-[#81B1B3] bg-[#e6eff0] text-[#81B1B3] hover:bg-[#749fa1] hover:border-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:border-[#678e8f] active:text-[#cde0e1] cursor-pointer font-medium duration-300 rounded-md px-2 py-1"
+            id="previous"
+          >
+            Previous
+          </button>
+          <button
+            class="bg-[#81B1B3] text-[#e6eff0] hover:bg-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:text-[#cde0e1] cursor-pointer font-medium duration-300 rounded-md px-2 py-1"
+            id="toQuiz"
+          >
+            Continue
+          </button>
+        </div>
+      </footer>
+    </section>
+
+    <section
+      class="hidden bg-[#f2f7f7] sm:rounded-none w-full h-full lg:rounded-xl lg:w-auto lg:h-auto shadow-lg shadow-[#0000004d] text-[#203031] flex flex-col"
+      id="quiz"
+    >
+      <header class="border-b border-solid border-b-[#cde0e1]">
+        <div
+          class="px-8 py-3 flex justify-between items-center font-medium"
+          id="headerWrapper"
+        >
+          <h5 class="font-bold text-lg">
+            Question <span id="questionNumber"></span>
+          </h5>
+
+          <div
+            class="bg-[#81B1B3] py-3 px-2 rounded-md"
+            id="quizCountdownWrapper"
+          >
+            <span>Time Left</span>
+            <span
+              class="bg-[#f2f7f7] ml-1 px-2 py-1 rounded-sm text-[#203031]"
+              id="quizCountdown"
+              >15</span
+            >
+          </div>
+        </div>
+
+        <div class="div border border-[#81B1B3]" id="timerBar"></div>
+      </header>
+
+      <main
+        class="sm:min-w-md lg:min-w-xl px-8 py-3 flex-auto"
+        id="questionWrapper"
+      >
+        <h5 class="font-bold text-xl mb-3" id="question"></h5>
+        <section class="flex flex-col gap-2" id="answerWrapper">
+          <button
+            class="border-[1.5px] border-[#81B1B3] bg-[#e6eff0] text-[#81B1B3] hover:bg-[#749fa1] hover:border-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:border-[#678e8f] active:text-[#cde0e1] cursor-pointer duration-300 rounded-md px-2 py-1 flex justify-between items-center"
+            id="optionA"
+            data-option="A"
+          >
+            <span class="flex gap-1"
+              >A. <span class="text-left" id="answerA"></span
+            ></span>
+          </button>
+          <button
+            class="border-[1.5px] border-[#81B1B3] bg-[#e6eff0] text-[#81B1B3] hover:bg-[#749fa1] hover:border-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:border-[#678e8f] active:text-[#cde0e1] cursor-pointer duration-300 rounded-md px-2 py-1 flex justify-between items-center"
+            id="optionB"
+            data-option="B"
+          >
+            <span class="flex gap-1"
+              >B. <span class="text-left" id="answerB"></span
+            ></span>
+          </button>
+          <button
+            class="border-[1.5px] border-[#81B1B3] bg-[#e6eff0] text-[#81B1B3] hover:bg-[#749fa1] hover:border-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:border-[#678e8f] active:text-[#cde0e1] cursor-pointer duration-300 rounded-md px-2 py-1 flex justify-between items-center"
+            id="optionC"
+            data-option="C"
+          >
+            <span class="flex gap-1"
+              >C. <span class="text-left" id="answerC"></span
+            ></span>
+          </button>
+          <button
+            class="border-[1.5px] border-[#81B1B3] bg-[#e6eff0] text-[#81B1B3] hover:bg-[#749fa1] hover:border-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:border-[#678e8f] active:text-[#cde0e1] cursor-pointer duration-300 rounded-md px-2 py-1 flex justify-between items-center"
+            id="optionD"
+            data-option="D"
+          >
+            <span class="flex gap-1"
+              >D. <span class="text-left" id="answerD"></span
+            ></span>
+          </button>
+        </section>
+      </main>
+
+      <footer
+        class="px-8 py-3 border-t border-solid border-t-[#cde0e1] flex justify-between"
+      >
+        <div class="pt-1"><span id="progress"></span> of 10 Questions</div>
+        <button
+          class="hidden bg-[#81B1B3] text-[#e6eff0] text-lg hover:bg-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:text-[#cde0e1] cursor-pointer font-medium duration-300 rounded-md px-3 py-1"
+          id="nextQuestionBtn"
+        >
+          Next
+        </button>
+      </footer>
+    </section>
+
+    <section
+      class="hidden bg-[#f2f7f7] rounded-xl shadow-lg shadow-[#0000004d] text-[#203031]"
+      id="quizResult"
+    >
+      <header class="px-8 py-2 border-b border-solid border-b-[#cde0e1]">
+        <h5 class="font-bold text-lg">Quiz Result</h5>
+      </header>
+      <main class="px-8 py-3 flex justify-center items-center flex-col">
+        <i class="ph-fill ph-crown text-9xl"></i>
+        <p>You've Completed the Quiz!</p>
+        <p>You got <span id="correctAnswer"></span> of 10</p>
+      </main>
+      <footer class="px-8 py-2 border-t border-solid border-t-[#cde0e1]">
+        <div class="flex justify-end gap-2">
+          <button
+            class="bg-[#81B1B3] text-[#e6eff0] hover:bg-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:text-[#cde0e1] cursor-pointer font-medium duration-300 rounded-md px-2 py-1"
+            id="replayQuiz"
+          >
+            Replay Quiz
+          </button>
+
+          <button
+            class="border-[1.5px] border-[#81B1B3] bg-[#e6eff0] text-[#81B1B3] hover:bg-[#749fa1] hover:border-[#749fa1] hover:text-[#c0d8d9] active:bg-[#678e8f] active:border-[#678e8f] active:text-[#cde0e1] cursor-pointer font-medium duration-300 rounded-md px-2 py-1"
+            id="exitQuiz"
+          >
+            Exit Quiz
+          </button>
+        </div>
+      </footer>
+    </section>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
