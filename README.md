@@ -16,7 +16,7 @@ Aplikasi kuis sederhana yang dibuat menggunakan **HTML**, **Tailwind CSS**, dan 
 ## Cara Menggunakan
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/idrmdhni/simplequiz.git](https://github.com/idrmdhni/simplequiz.git)
+    git clone https://github.com/idrmdhni/SimpleQuiz.git
     ```
 2.  **Buka file `index.html` di browser Anda.**
 
