@@ -1,6 +1,4 @@
 # SimpleQuiz
-
-## Deskripsi
 Aplikasi kuis sederhana yang dibuat menggunakan **HTML**, **Tailwind CSS**, dan **JavaScript**. Aplikasi ini menampilkan serangkaian pertanyaan pilihan ganda kepada pengguna, memberikan umpan balik instan tentang jawaban mereka, dan menampilkan skor akhir di akhir kuis.
 
 ## Fitur
