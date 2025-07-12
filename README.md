@@ -18,7 +18,7 @@ Aplikasi kuis sederhana yang dibuat menggunakan **HTML**, **Tailwind CSS**, dan 
     ```bash
     git clone https://github.com/idrmdhni/SimpleQuiz.git
     ```
-2.  **Buka file `index.html` di browser Anda.**
+2.  **Buka file `index.html` di browser.**
 
 ## Konten Kuis
 Saat ini, kuis ini berisi pertanyaan tentang **Ilmu Bumi**, seperti yang dapat dilihat pada file `questions.js`.
